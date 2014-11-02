@@ -61,6 +61,12 @@ class DeployGateTask extends DefaultTask {
         HashMap<String, JSONObject> result = new HashMap<String, JSONObject>()
         for(Apk apk in apks) {
             HttpClient httpclient = new DefaultHttpClient()
+            def httpParams = httpclient.getParams();
+            //接続確立のタイムアウトを設定（単位：ms）
+            HttpConnectionParams.setConnectionTimeout(httpParams, 500*1000);
+            //接続後のタイムアウトを設定（単位：ms）
+            HttpConnectionParams.setSoTimeout(httpParams, 500*1000);
+
             HttpPost httppost = new HttpPost(endPoint)
             MultipartEntity request_entity = new MultipartEntity()
             Charset charset = Charset.forName(HTTP.UTF_8)
