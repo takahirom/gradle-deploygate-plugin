@@ -89,6 +89,7 @@ class DeployGateTask extends DefaultTask {
                 InputStream is = entity.getContent()
                 BufferedReader reader = new BufferedReader(new InputStreamReader(is))
                 JSONObject json = new JSONObject(reader.readLine())
+                System.out.println(json.toString());
                 result.put(apk.name, json)
                 try {
                 } finally {
