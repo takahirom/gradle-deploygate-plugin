@@ -1,6 +1,5 @@
 package com.deploygate.gradle.plugins
 
-import org.apache.http.params.HttpConnectionParams
 import org.gradle.api.GradleException
 import org.gradle.api.DefaultTask
 import org.gradle.api.Project
